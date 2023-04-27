@@ -48,7 +48,7 @@ const Compose = () => {
             return setErr('Can\'t send application as no receiver can be found.')
         }
 
-		axios.post("http://localhost:3500/mails", {
+		axios.post("https://leaveapp-api.onrender.com/mails", {
 				subject,
 				days,
 				body,
