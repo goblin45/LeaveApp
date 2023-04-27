@@ -52,7 +52,10 @@ const EditSchool = () => {
 
     return (
         <div>
-        <NavBar/>
+        <NavBarDashBoard
+            student_id=''
+            admin_id={admin_id}
+        />
         <div className='justify-content-center'>
 
             <FormContainer>
