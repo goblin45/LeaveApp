@@ -1,11 +1,11 @@
 import axios from 'axios'
-import NavBar from '../../NavBar/NavBar'
 import { FormContainer } from '../../Forms/FormContainer'
 import { Form } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 
 import { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import NavBarDashboard from '../../NavBar/NavBarDashboard'
 
 const EditSchool = () => {
 
@@ -52,7 +52,7 @@ const EditSchool = () => {
 
     return (
         <div>
-        <NavBarDashBoard
+        <NavBarDashboard
             student_id=''
             admin_id={admin_id}
         />
