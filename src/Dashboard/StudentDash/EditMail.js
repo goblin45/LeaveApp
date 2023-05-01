@@ -23,7 +23,7 @@ const EditMail = () => {
     const { senderId, senderName, mail_id } = location.state || {}
 
     useEffect(() => {
-        axios.post('https://leaveapp-api.onrender.com/mails/find', { _id: mail_id })
+        axios.post('http://localhost:3500/mails/find', { _id: mail_id })
             .then(response => {
                 const mail = response.data
                 console.log(mail)
@@ -38,7 +38,7 @@ const EditMail = () => {
     }, [])
 
     useEffect(() => {
-		axios.post("https://leaveapp-api.onrender.com/students/sameschooladmins", { _id: senderId })
+		axios.post("http://localhost:3500/students/sameschooladmins", { _id: senderId })
 		.then(response => {
 			const admins_received = response.data
 			setAdmins(admins_received)
@@ -59,7 +59,7 @@ const EditMail = () => {
             return setErr('Can\'t send application as no receiver can be found.')
         }
 
-        axios.patch('https://leaveapp-api.onrender.com/mails', { _id: mail_id, subject, days, body, receiverId })
+        axios.patch('http://localhost:3500/mails', { _id: mail_id, subject, days, body, receiverId })
 
             .then(response => {
                 console.log(response)
@@ -92,7 +92,7 @@ const EditMail = () => {
             <hr className='mb-3'/>
             <Form>
                 <Form.Group controlId='subject'></Form.Group>
-                <Form.Label className='days'><h4>Subject</h4></Form.Label>
+                <Form.Label className='days2'><h5>Subject</h5></Form.Label>
                 <Form.Control 
                     type='text'
                     name='subject'
@@ -100,19 +100,32 @@ const EditMail = () => {
                     onChange={(e)=>setSubject(e.target.value)}
                 />
                 
+            <div className='sender_days'>
+            <Form.Label ><h6 className='days'>Receiver</h6></Form.Label>
+                    <Form.Select value={receiverId} onChange={handleSelectAdmin}>
+                        {admins?.length ? (
+                            admins.map(admin=>(
+        
+                                <option className='admin_box' key={admin._id} value={admin._id} > {admin.name} </option>
+                            ))
+                            ) : <option disabled selected value=''>No admin found for this school</option>
+                        }
+                    </Form.Select>
 
                 <Form.Group controlId='days'></Form.Group>
-                <Form.Label className='days'><h4>Days</h4></Form.Label>
+                <Form.Label ><h6 className='days'>Days</h6></Form.Label>
                 <Form.Control 
                     type='digit'
                     name='days'
                     value={days}
                     onChange={(e)=>setDays(e.target.value)}
                 />
+                 
+                </div>
                 
 
                 <Form.Group controlId='body'> </Form.Group>
-                <Form.Label className='days1'><h4>Application Body</h4></Form.Label>
+                <Form.Label className='days1'><h5>Application Body</h5></Form.Label>
 
                 <FloatingLabel controlId="Mail Body" label="Application Body">
                     <Form.Control
@@ -124,16 +137,7 @@ const EditMail = () => {
                     />
                 </FloatingLabel>
 
-                <Form.Label className='days'><h6 className='send_to'>Receiver</h6></Form.Label>
-                    <Form.Select value={receiverId} onChange={handleSelectAdmin}>
-                        {admins?.length ? (
-                            admins.map(admin=>(
-        
-                                <option className='admin_box' key={admin._id} value={admin._id} > {admin.name} </option>
-                            ))
-                            ) : <option disabled selected value=''>No admin found for this school</option>
-                        }
-                    </Form.Select>
+               
 
             </Form>
 
@@ -150,7 +154,8 @@ const EditMail = () => {
         </div>
         </div>
         </div>
+   
     )
 }
 
-export default EditMail
+export default EditMail
