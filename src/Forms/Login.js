@@ -34,37 +34,41 @@ const Login = () => {
 	return (
 		<div>
 			<Navbar/>
-		<div className='justify-content-center'>
-		<FormContainer>
-			<h2>Login With Us</h2>
-			<h4>Don't have an account?<Link to='/signup'>Signup</Link></h4>
-			
-			<h5>If you are an admin, <Link to='/login/admin'>Click Here</Link></h5> 
+			<div className='bagc'>
+				<div className='justify-content-center'>
+					
+				<FormContainer>
+					<h2><div className='form_head'>Login</div></h2>
+					<h4><div className='form_head'>Don't have an account? <Link to='/signup'><div>Signup</div></Link></div></h4>
+					
+					<h5><div className='form_head'>If you are an admin, <Link to='/login/admin'><div className='newl'>Click Here</div></Link></div></h5> 
 
-			<hr className='md-3'/>
-			<Form method='POST'>
-				<Form.Group controlId='id'></Form.Group>
-				<Form.Label autoFocus><h5>Enrollment Number</h5></Form.Label>        
-				<Form.Control
-				type='digit' placeholder='enrollment number' name='id' value={id}
-				onChange={e=>setId(e.target.value)}>
-				</Form.Control>
-			
-				<Form.Group controlId='pwd'></Form.Group>
-				<Form.Label><h5>Password</h5></Form.Label>        
-				<Form.Control
-				type='password' placeholder='must be 8-20 letter long' value={password} onChange={e=>setPassword(e.target.value)}>
-				</Form.Control>
-				
-			</Form>
-			<hr className='md-3'/>
+					<hr className='md-3'/>
+					<Form method='POST'>
+						<Form.Group controlId='id'></Form.Group>
+						<Form.Label autoFocus><div className='subhead1'><h5>Student ID</h5></div></Form.Label>        
+						<Form.Control className='form_field'
+						type='digit' placeholder='Student ID' name='id' value={id}
+						onChange={e=>setId(e.target.value)}>
+						</Form.Control>
+					
+						<Form.Group controlId='pwd'></Form.Group>
+						<Form.Label><div className='subhead1'><h5>Password</h5></div></Form.Label>        
+						<Form.Control className='form_field'
+						type='password' placeholder='must be 8-20 letter long' value={password} onChange={e=>setPassword(e.target.value)}>
+						</Form.Control>
+						
+					</Form>
+					<hr className='md-3'/>
 
-			{err?.length ? (<p>{err}</p>) : <></>}
+					{err?.length ? (<p>{err}</p>) : <></>}
 
-			<Button variant='secondary' onClick={handleSubmit}>Login</Button>
-		</FormContainer>
-
-		</div>
+					<Button variant='secondary'  onClick={handleSubmit}><div ><div>Login</div></div></Button>
+					
+					
+				</FormContainer>
+				</div>
+			</div>
 		</div>
 	)
 }
