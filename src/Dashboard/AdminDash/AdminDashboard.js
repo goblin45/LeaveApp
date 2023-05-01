@@ -18,22 +18,32 @@ const AdminDashboard = () => {
 
 	return (
 		<div>
+			<div className='bagc'>
 			<NavBarDashBoard
 				admin_id = {admin_id}
 				student_id = ''
 			/> 
+			<div className='dashboard_bg'>
+				<div className='dashboard_overlay'>
+
+				
 			<div className='head'>
 				<h3 className='welcome'>Welcome {admin_name}</h3>	
 			</div>
+			
 			<div className='container'>
-				<h5>Here is your pending mails to check</h5>
-
+				
 				<ReceivedMail 
 					adminId = {admin_id}
 				/>
 				
+			
+	
+			</div>
+			</div>
 			</div>
 
+		</div>
 		</div>
 	)
 }
