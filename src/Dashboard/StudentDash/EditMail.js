@@ -77,18 +77,22 @@ const EditMail = () => {
 
     return (
         <div>
+            <div className='bagc'>
             <NavBarDashBoard
                 student_id={senderId}
                 admin_id=''
             />
+
        <div className="justify-content-center">
+       <div className='dashboard_bg'>
+	<div className='dashboard_overlay'>
 	
     <div className='container'>
-            <h2>Edit your mail</h2>
+            <h2 className='form_head1'>Edit your mail</h2>
             <hr className='mb-3'/>
             <Form>
                 <Form.Group controlId='subject'></Form.Group>
-                <Form.Label><h4>Subject</h4></Form.Label>
+                <Form.Label className='days'><h4>Subject</h4></Form.Label>
                 <Form.Control 
                     type='text'
                     name='subject'
@@ -98,7 +102,7 @@ const EditMail = () => {
                 
 
                 <Form.Group controlId='days'></Form.Group>
-                <Form.Label><h4>Days</h4></Form.Label>
+                <Form.Label className='days'><h4>Days</h4></Form.Label>
                 <Form.Control 
                     type='digit'
                     name='days'
@@ -108,7 +112,7 @@ const EditMail = () => {
                 
 
                 <Form.Group controlId='body'> </Form.Group>
-                <Form.Label><h4>Application Body</h4></Form.Label>
+                <Form.Label className='days1'><h4>Application Body</h4></Form.Label>
 
                 <FloatingLabel controlId="Mail Body" label="Application Body">
                     <Form.Control
@@ -120,7 +124,7 @@ const EditMail = () => {
                     />
                 </FloatingLabel>
 
-                <Form.Label><h6 className='send_to'>Receiver</h6></Form.Label>
+                <Form.Label className='days'><h6 className='send_to'>Receiver</h6></Form.Label>
                     <Form.Select value={receiverId} onChange={handleSelectAdmin}>
                         {admins?.length ? (
                             admins.map(admin=>(
@@ -136,10 +140,13 @@ const EditMail = () => {
                 { err ? <p>{err}</p> : <></> }
 
                 {admins?.length ? (
-                    <Button className='primary' onClick={handleUpdate}>Update Mail</Button>
-                ) : <Button variant='secondary' dislabled>Update Mail</Button>}
+                    <Button className='primary' onClick={handleUpdate}><div className='subhead1'>Update Mail</div></Button>
+                ) : <Button variant='secondary' dislabled><div classNmae='subhead1'>Update Mail</div></Button>}
             
 
+        </div>
+        </div>
+        </div>
         </div>
         </div>
         </div>
