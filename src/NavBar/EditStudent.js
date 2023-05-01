@@ -52,13 +52,15 @@ const EditStudent = () => {
 
     return (
         <div>
+            <div className='bagc'>
             <NavBarDashBoard
                 student_id={_id}
                 admin_id = {''}
             />
             <FormContainer>
-                <h2>Edit Profile</h2>
+                <h2><div className='head1'>Edit Profile</div></h2>
                 <Form.Group controlId="id">
+                <div className='subhead1'>
                     <Form.Label><h4>Student Id</h4></Form.Label>
                     <Form.Control
                         type='text'
@@ -66,9 +68,11 @@ const EditStudent = () => {
                         value={id}
                         onChange={(e) => setId(e.target.value)}
                     />
+                    </div>
                 </Form.Group>
 
                 <Form.Group controlId="name">
+                <div className='subhead1'>
                     <Form.Label><h4>Name</h4></Form.Label>
                     <Form.Control
                         type='text'
@@ -76,9 +80,11 @@ const EditStudent = () => {
                         value={name}
                         onChange={(e)=>setName(e.target.value)}
                     />
+                    </div>
                 </Form.Group>
 
                 <Form.Group controlId="password">
+                <div className='subhead1'>
                     <Form.Label><h4>Password</h4></Form.Label>
                     <Form.Control
                         type='password'
@@ -87,9 +93,11 @@ const EditStudent = () => {
                         value={password}
                         onChange={(e)=>setPassword(e.target.value)}
                     />
+                    </div>
                 </Form.Group>
 
                 <Form.Group controlId="inst_name">
+                <div className='subhead1'>
                     <Form.Label><h4>Institution Name</h4></Form.Label>
                     <Form.Control
                         type='text'
@@ -97,13 +105,15 @@ const EditStudent = () => {
                         value={inst_name}
                         onChange={(e)=>setInst_Name(e.target.value)}
                     />
+                    </div>
                 </Form.Group>
 
                 {err?.length ? (<p>{err}</p>) : <></>}	
 
-                <Button onClick={handleUpdate}>Update Details</Button>
+                <Button onClick={handleUpdate}><div className='subhead1'>Update Details</div></Button>
 
             </FormContainer>
+            </div>
         </div>
     )
 }
