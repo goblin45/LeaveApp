@@ -63,7 +63,7 @@ const AdminSignUp = () => {
 						type='text' placeholder='name' value={name} onChange={e=>setName(e.target.value)}>
 						</Form.Control>
 						<Form.Group controlId='c_id'></Form.Group>
-						<Form.Label><h5>College Name</h5></Form.Label>        
+						<Form.Label><h5>Institute Name</h5></Form.Label>        
 						<Form.Control className='form_field'
 						type='text' placeholder='e.g.: University of Engineering & Management - Kolkata' value={inst_name} onChange={(e)=>setInst_Name(e.target.value)}>
 						</Form.Control>
