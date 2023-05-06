@@ -1,11 +1,12 @@
 import axios from 'axios'
+
 import { FormContainer } from '../../Forms/FormContainer'
 import { Form } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
+import NavBarDashBoard from '../../NavBar/NavBarDashboard'
 
 import { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import NavBarDashboard from '../../NavBar/NavBarDashboard'
 
 const EditSchool = () => {
 
@@ -22,7 +23,7 @@ const EditSchool = () => {
     const { admin_id } = location.state || {}
 
     useEffect(() => {
-        axios.post('https://leaveapp-api.onrender.com/admins/find', { _id: admin_id })
+        axios.post('http://localhost:3500/admins/find', { _id: admin_id })
             .then(response => {
                 const data = response.data
                 setAdmin_name(data.name)
@@ -38,7 +39,7 @@ const EditSchool = () => {
  
     const handleEdit = () => {
 
-        axios.patch('https://leaveapp-api.onrender.com/schools', { _id: instId, name, contact, code })
+        axios.patch('http://localhost:3500/schools', { _id: instId, name, contact, code })
             .then(response => {
                 const reply = response.data.message
                 console.log(reply)
@@ -52,49 +53,52 @@ const EditSchool = () => {
 
     return (
         <div>
-        <NavBarDashboard
-            student_id=''
-            admin_id={admin_id}
-        />
-        <div className='justify-content-center'>
+        <div className='bagc'>
+    <NavBarDashBoard
+        student_id=''
+        admin_id={admin_id}
+    />
+    <div className='justify-content-center'>
 
-            <FormContainer>
-                <h2>Enter the details</h2>
-                <hr className='md-3'/>
-                <Form method='POST'>
-                    <Form.Group controlId='Name'></Form.Group>
-                    <Form.Label><h5>School/College Name</h5></Form.Label>  
+        <FormContainer>
+            <h2><div className='form_head'>Enter the details</div></h2>
+            <hr className='md-3'/>
+            <Form method='POST'>
+                <div className='subhead1'>
+                <Form.Group controlId='Name'></Form.Group>
+                <Form.Label><h5>School/College Name</h5></Form.Label>  
 
-                    <Form.Control
-                    type='digit' placeholder='Institute Name' name='name' value={name}
-                    onChange={e=>setName(e.target.value)}>
-                    </Form.Control>
+                <Form.Control
+                type='digit' placeholder='Institute Name' name='name' value={name}
+                onChange={e=>setName(e.target.value)}>
+                </Form.Control>
 
-                    <Form.Group controlId='contact'></Form.Group>
-                    <Form.Label><h5>Contact No</h5></Form.Label>        
-                    
-                    <Form.Control
-                    type='text' placeholder='Contact No. of the Institute' name='contact' value={contact} onChange={e=>setContact(e.target.value)}>
-                    </Form.Control>
+                <Form.Group controlId='contact'></Form.Group>
+                <Form.Label><h5>Contact No</h5></Form.Label>        
+                
+                <Form.Control
+                type='text' placeholder='Contact No. of the Institute' name='contact' value={contact} onChange={e=>setContact(e.target.value)}>
+                </Form.Control>
 
-                    <Form.Group controlId='code'></Form.Group>
-                    <Form.Label><h5>Code</h5></Form.Label>
+                <Form.Group controlId='code'></Form.Group>
+                <Form.Label><h5>Code</h5></Form.Label>
 
-                    <Form.Control
-                    type='text' placeholder='The code must be provided to all the admins' name='code' onChange={e=>setCode(e.target.value)} value={code}>
-                    </Form.Control>
-                    
-                </Form>
-                <hr className='md-3'/>
+                <Form.Control
+                type='text' placeholder='The code must be provided to all the admins' name='code' onChange={e=>setCode(e.target.value)} value={code}>
+                </Form.Control>
+                </div>
+                
+            </Form>
+            <hr className='md-3'/>
 
-                {err?.length ? (<p>{err}</p>) : <></>}
+            {err?.length ? (<p>{err}</p>) : <></>}
 
-                <Button variant='secondary' type='submit' onClick={handleEdit}>Update Details</Button>
+            <Button className='update1' type='submit' onClick={handleEdit}>Update Details</Button>
 
-            </FormContainer>
-        </div>
+        </FormContainer>
     </div>
-
+    </div>
+</div>
     )
 }
 
