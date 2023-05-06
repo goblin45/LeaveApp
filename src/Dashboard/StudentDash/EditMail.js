@@ -23,7 +23,7 @@ const EditMail = () => {
     const { senderId, senderName, mail_id } = location.state || {}
 
     useEffect(() => {
-        axios.post('http://localhost:3500/mails/find', { _id: mail_id })
+        axios.post('https://leaveapp-api.onrender.com/mails/find', { _id: mail_id })
             .then(response => {
                 const mail = response.data
                 console.log(mail)
@@ -38,7 +38,7 @@ const EditMail = () => {
     }, [])
 
     useEffect(() => {
-		axios.post("http://localhost:3500/students/sameschooladmins", { _id: senderId })
+		axios.post("https://leaveapp-api.onrender.com/students/sameschooladmins", { _id: senderId })
 		.then(response => {
 			const admins_received = response.data
 			setAdmins(admins_received)
@@ -59,7 +59,7 @@ const EditMail = () => {
             return setErr('Can\'t send application as no receiver can be found.')
         }
 
-        axios.patch('http://localhost:3500/mails', { _id: mail_id, subject, days, body, receiverId })
+        axios.patch('https://leaveapp-api.onrender.com/mails', { _id: mail_id, subject, days, body, receiverId })
 
             .then(response => {
                 console.log(response)
