@@ -30,35 +30,35 @@ const StudentDashboard = () => {
 				student_id = {student_id}
 				admin_id = ''
 			/> 
-			<div  className='dashboard_bg'>
-				<div className='dashboard_overlay' >
-				
-					<div className='head'>
-					
-					
-						<p className='welcome'>Welcome {student_name}</p>
+			<div  className='dashboard_s_bg'>
+			<div className='dashboard_overlay' >
+			
+			<div className='head'>
+			
+			
+				<p className='welcome'>Welcome {student_name}</p>
 
-						<button  className='button' onClick={ () => {navigate('/student/compose', { state: { studentId: student_id, studentName: student_name } }) }}><h5>Compose New</h5></button>
-					
+				<button  className='button' onClick={ () => {navigate('/student/compose', { state: { studentId: student_id, studentName: student_name } }) }}><h5>Compose New</h5></button>
+			
+			</div>
+			<div className='container'>
+				<div clasName='row'>
+			
+					<div className='pending'>
+						<PendingMail 
+							senderId = {student_id}
+							senderName = {student_name}
+						/>
 					</div>
-					<div className='container'>
-						<div clasName='row'>
-					
-							<div className='pending'>
-								<PendingMail 
-									senderId = {student_id}
-									senderName = {student_name}
-								/>
-							</div>
-						<hr/>
-							<div className='past'>
-								<PastMail 
-									senderId = {student_id}
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
+                   <hr/>
+					<div className='past'>
+						<PastMail 
+							senderId = {student_id}
+						/>
+       	 			</div>
+          		</div>
+        	</div>
+			</div>
 			</div>
 		</div>
 	)
