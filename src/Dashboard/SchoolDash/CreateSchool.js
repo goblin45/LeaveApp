@@ -17,7 +17,7 @@ const CreateSchool = () => {
     const navigate = useNavigate()
 
     const handleSubmit = () => {
-        axios.post('http://localhost:3500/schools', { name, contact, code })
+        axios.post('https://leaveapp-api.onrender.com/schools', { name, contact, code })
             .then(response => {
                 const reply = response.data.message
                 console.log(reply)
