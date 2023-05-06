@@ -23,7 +23,7 @@ const DeleteStudent = () => {
 
         console.log(_id)
 
-        axios.delete("http://localhost:3500/students", { data: { _id: _id, password: password } })
+        axios.delete("https://leaveapp-api.onrender.com/students", { data: { _id: _id, password: password } })
             .then(response => {
                 
                 const name = response.data.name
