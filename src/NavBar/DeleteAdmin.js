@@ -19,7 +19,7 @@ const DeleteAdmin = () => {
     const handleDelete = (e) => {
         e.preventDefault()
 
-        axios.delete('http://localhost:3500/admins', { data: { _id: _id, password: password } })
+        axios.delete('https://leaveapp-api.onrender.com/admins', { data: { _id: _id, password: password } })
             .then(response => {
                 
                 const name = response.data.name
