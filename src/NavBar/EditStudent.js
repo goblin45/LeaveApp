@@ -20,7 +20,7 @@ const EditStudent = () => {
     const { _id } = location.state || {}
 
     useEffect(() => {
-        axios.post('http://localhost:3500/students/find', { _id })
+        axios.post('https://leaveapp-api.onrender.com/students/find', { _id })
             .then(response => {
                 const student = response.data
                 console.log(student)
@@ -37,7 +37,7 @@ const EditStudent = () => {
         e.preventDefault()
         console.log(id, name, inst_name, password)
 
-        axios.patch('http://localhost:3500/students', { _id, id, name, password, inst_name })
+        axios.patch('https://leaveapp-api.onrender.com/students', { _id, id, name, password, inst_name })
             .then(response => {
                 const data = response.data
                 // console.log(data)
