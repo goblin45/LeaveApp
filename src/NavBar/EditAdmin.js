@@ -21,7 +21,7 @@ const EditAdmin = () => {
     const { _id } = location.state || {}
 
     useEffect(() => {
-        axios.post('https://leaveapp-api.onrender.com/admins/find', { _id })
+        axios.post('http://localhost:3500/admins/find', { _id })
             .then(response => {
                 const admin = response.data
                 console.log(admin)
@@ -38,7 +38,7 @@ const EditAdmin = () => {
     const handleUpdate=(e)=>{
         e.preventDefault()
 
-        axios.patch('https://leaveapp-api.onrender.com/admins', { _id, id, name, password, inst_name, code })
+        axios.patch('http://localhost:3500/admins', { _id, id, name, password, inst_name, code })
             .then(response => {
                 const data = response.data
                 console.log(data)
@@ -59,7 +59,8 @@ const EditAdmin = () => {
                 admin_id = {_id}
             />
             <FormContainer>
-                <h2><div className='head1'>Edit Profile</div></h2>
+                <h2><div className='form_head'>Edit Profile</div></h2>
+                <hr className="md-3"/>
                 <Form.Group controlId="id"><div className='subhead1'>
                     <Form.Label><h4>Admin Id</h4></Form.Label>
                     <Form.Control
@@ -118,8 +119,8 @@ const EditAdmin = () => {
                 </Form.Group>
 
                 {err?.length ? (<p>{err}</p>) : <></>}	
-
-                <button className='update1' onClick={handleUpdate}>Update Details</button>
+                <hr className="md-3"/>
+                <Button className='update1' onClick={handleUpdate}>Update Details</Button>
 
             </FormContainer>
             </div>
@@ -127,4 +128,4 @@ const EditAdmin = () => {
     )
 }
 
-export default EditAdmin
+export default EditAdmin
