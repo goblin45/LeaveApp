@@ -21,7 +21,7 @@ const EditAdmin = () => {
     const { _id } = location.state || {}
 
     useEffect(() => {
-        axios.post('http://localhost:3500/admins/find', { _id })
+        axios.post('https://leaveapp-api.onrender.com/admins/find', { _id })
             .then(response => {
                 const admin = response.data
                 console.log(admin)
@@ -38,7 +38,7 @@ const EditAdmin = () => {
     const handleUpdate=(e)=>{
         e.preventDefault()
 
-        axios.patch('http://localhost:3500/admins', { _id, id, name, password, inst_name, code })
+        axios.patch('https://leaveapp-api.onrender.com/admins', { _id, id, name, password, inst_name, code })
             .then(response => {
                 const data = response.data
                 console.log(data)
