@@ -342,8 +342,12 @@ background-size:cover;
   background-image: url("../public/ab_dash.jpg");
   background-size: cover;
   background-position: center;
-  width: 100%;  
-  background-repeat:repeat-y;
+  height:1080px;
+  background-repeat: repeat-y;
+
+ 
+
+ 
  
 }
 .dashboard_s_bg{
