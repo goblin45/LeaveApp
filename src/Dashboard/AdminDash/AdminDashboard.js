@@ -17,7 +17,7 @@ const AdminDashboard = () => {
 	}
 
 	return (
-		<div>
+		
 		<div className='dashboard_bg'>
 			<div className='dashboard_overlay'>
 			
@@ -38,7 +38,7 @@ const AdminDashboard = () => {
 			
 
 		</div>
-		</div>
+	
 	)
 }
 
