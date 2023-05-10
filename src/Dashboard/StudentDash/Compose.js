@@ -25,7 +25,7 @@ const Compose = () => {
 	const { studentId, studentName } = location.state || {} 
 
 	useEffect(() => {
-		axios.post("https://leaveapp-api.onrender.com/students/sameschooladmins", { _id: studentId })
+		axios.post("http://localhost:3500/students/sameschooladmins", { _id: studentId })
 		.then(response => {
 			const admins_received = response.data
 			setAdmins(admins_received)
@@ -48,7 +48,7 @@ const Compose = () => {
             return setErr('Can\'t send application as no receiver can be found.')
         }
 
-		axios.post("https://leaveapp-api.onrender.com/mails", {
+		axios.post("http://localhost:3500/mails", {
 				subject,
 				days,
 				body,
