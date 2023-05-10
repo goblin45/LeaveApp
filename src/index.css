@@ -1,3 +1,4 @@
+
 body {
   height:100%;
   margin: 0;
@@ -637,13 +638,14 @@ right:-490px;
 .bg_about{
   background-image: url("../src/images/bg_about_manual.png");
   background-position: center;
- 
+
   background-repeat: repeat-x;
  
 }
 .bg_manual{
   background-image: url("../src/images/bg_about_manual.png");
   width: 100%;
+
   background-repeat:repeat-y;
   background-position: center;
 }
@@ -651,3 +653,4 @@ right:-490px;
   padding-top: 10px;
   margin-top: 10px;
 }
+  
